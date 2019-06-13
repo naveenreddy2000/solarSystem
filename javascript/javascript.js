@@ -11,7 +11,7 @@ renderer.setSize( width , height );
 camera.position.set(0,0,2500);
 
 var sunSphere = new THREE.SphereGeometry(115,80,80);
-var sunMaterial = new THREE.MeshBasicMaterial({ color : 0xffff45     }); //{ map : new THREE.TextureLoader().load('./images/sunmap.jpg') }
+var sunMaterial = new THREE.MeshBasicMaterial({ map : new THREE.TextureLoader().load('./images/sunmap.jpg') }); //
 var sunMesh = new THREE.Mesh(sunSphere, sunMaterial);
 
 
