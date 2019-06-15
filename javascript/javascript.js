@@ -11,8 +11,9 @@ renderer.setSize( width , height );
 camera.position.set(0,0,1500);
 
 var sunSphere = new THREE.SphereGeometry(115,80,80);
-var sunMaterial = new THREE.MeshBasicMaterial({ color: 0xffff21 }); 
+var sunMaterial = new THREE.MeshBasicMaterial({color : 0xFF7A11}); 
 var sunMesh = new THREE.Mesh(sunSphere, sunMaterial);
+sunMesh.callback = cricbuzz ;
 
 
 var stars = [] ;
@@ -54,24 +55,44 @@ cameraPivot = new THREE.Object3D();
         neptunPivot = new THREE.Object3D();
 
 
+ function cricbuzz()
+{
+    window.open('https://www.cricbuzz.com/');
+}
+function nitdgp()
+{
+    window.open('https://www.nitdgp.ac.in/');
+}
+function threejs()
+{
+    window.open('https://threejs.org/');
+}
+function youtube()
+{
+    window.open('https://www.youtube.com/');
+}
+        
         
  //mercury
 var mercurySphere = new THREE.SphereGeometry(2,80,80);
 var mercuryMaterial = new THREE.MeshBasicMaterial({ map : new THREE.TextureLoader().load('./images/images(1).jpg') });  
 var mercuryMesh = new THREE.Mesh(mercurySphere, mercuryMaterial);
  mercuryMesh.position.set(240,0,0);
+ mercuryMesh.callback = cricbuzz ;
  mercuryPivot.add( mercuryMesh );
  //venus
  var venusSphere = new THREE.SphereGeometry(5,80,80);
  var venusMaterial = new THREE.MeshBasicMaterial({ map : new THREE.TextureLoader().load('./images/images(2).jpg') });
  var venusMesh = new THREE.Mesh(venusSphere, venusMaterial);
  venusMesh.position.set(275,0,0);
+ venusMesh.callback = youtube ;
  venusPivot.add( venusMesh );
  //earth
  var earthSphere = new THREE.SphereGeometry(10,40,80);
  var earthMaterial = new THREE.MeshBasicMaterial({ map : new THREE.TextureLoader().load('./images/images(3).jpg') });
  var earthMesh = new THREE.Mesh(earthSphere, earthMaterial);
  earthMesh.position.set(300,0,0);
+ earthMesh.callback = nitdgp ;
  earthPivot.add( earthMesh );
 
  //mars
@@ -79,6 +100,7 @@ var mercuryMesh = new THREE.Mesh(mercurySphere, mercuryMaterial);
  var marsMaterial = new THREE.MeshBasicMaterial({ map : new THREE.TextureLoader().load('./images/images(4).jpg') });
  var marsMesh = new THREE.Mesh(marsSphere, marsMaterial);
  marsMesh.position.set(360,0,0);
+ marsMesh.callback = threejs ;
  marsPivot.add( marsMesh );
 
  //jupiter
@@ -86,6 +108,7 @@ var mercuryMesh = new THREE.Mesh(mercurySphere, mercuryMaterial);
  var jupiterMaterial = new THREE.MeshBasicMaterial({ map : new THREE.TextureLoader().load('./images/images(5).jpg')});
  var jupiterMesh = new THREE.Mesh(jupiterSphere, jupiterMaterial);
  jupiterMesh.position.set(720,0,0);
+ jupiterMesh.callback = youtube ;
  jupiterPivot.add( jupiterMesh );
 
  //saturn
@@ -93,6 +116,7 @@ var mercuryMesh = new THREE.Mesh(mercurySphere, mercuryMaterial);
  var saturnMaterial = new THREE.MeshBasicMaterial({ map : new THREE.TextureLoader().load('./images/images(6).jpg') });
  var saturnMesh = new THREE.Mesh(saturnSphere, saturnMaterial);
  saturnMesh.position.set(1160,0,0);
+ saturnMesh.callback = threejs ;
  saturnPivot.add( saturnMesh );
 
  //uranus
@@ -100,6 +124,7 @@ var mercuryMesh = new THREE.Mesh(mercurySphere, mercuryMaterial);
  var uranusMaterial = new THREE.MeshBasicMaterial({ map : new THREE.TextureLoader().load('./images/images(7).jpg') });
  var uranusMesh = new THREE.Mesh(uranusSphere, uranusMaterial);
  uranusMesh.position.set(2120,0,0);
+ uranusMesh.callback = cricbuzz ;
  uranusPivot.add( uranusMesh );
 
  //neptun
@@ -107,6 +132,7 @@ var mercuryMesh = new THREE.Mesh(mercurySphere, mercuryMaterial);
  var neptunMaterial = new THREE.MeshBasicMaterial({ map : new THREE.TextureLoader().load('./images/images(8).jpg') });
  var neptunMesh = new THREE.Mesh(neptunSphere, neptunMaterial);
  neptunMesh.position.set(3210,0,0);
+ neptunMesh.callback = youtube ;
  neptunPivot.add( neptunMesh );
 
  var i = 0 ;
@@ -118,6 +144,29 @@ var mercuryMesh = new THREE.Mesh(mercurySphere, mercuryMaterial);
 
  scene.add(sunMesh);
 
+ var raycaster = new THREE.Raycaster();
+var mouse = new THREE.Vector2();
+function wheel(event)
+{
+    event.preventDefault();
+    mouse.x = (event.clientX / renderer.domElement.clientWidth) * 2 - 1;
+    mouse.y =  - (event.clientY / renderer.domElement.clientHeight) * 2 + 1;
+    raycaster.setFromCamera(mouse , camera);
+    meshObjects = [mercuryMesh,venusMesh,earthMesh,marsMesh,jupiterMesh,saturnMesh,uranusMesh,neptunMesh,sunMesh] ;
+    var intersects = raycaster.intersectObjects(meshObjects);
+    if ( intersects.length > 0 )
+    {
+        for (  i = 0 ; i < 8 ; i++  )
+        {
+            intersects[i].object.callback();
+        }
+        canvas.style.cursor = "pointer" ;
+        
+    }
+}
+
+
+document.addEventListener('wheel',wheel,false);
 
 
 
