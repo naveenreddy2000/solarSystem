@@ -11,7 +11,7 @@ renderer.setSize( width , height );
 camera.position.set(0,0,1500);
 
 var sunSphere = new THREE.SphereGeometry(115,80,80);
-var sunMaterial = new THREE.MeshBasicMaterial({color : 0xFF7A11}); 
+var sunMaterial = new THREE.MeshBasicMaterial({color : 0xFF7A11,transparent: true,opacity : 1}); 
 var sunMesh = new THREE.Mesh(sunSphere, sunMaterial);
 sunMesh.callback = cricbuzz ;
 
@@ -105,7 +105,7 @@ var mercuryMesh = new THREE.Mesh(mercurySphere, mercuryMaterial);
 
  //jupiter
  var jupiterSphere = new THREE.SphereGeometry(57,80,80);
- var jupiterMaterial = new THREE.MeshBasicMaterial({ map : new THREE.TextureLoader().load('./images/images(5).jpg')});
+ var jupiterMaterial = new THREE.MeshBasicMaterial({ map : new THREE.TextureLoader().load('./images/images(5).jpg'),transparent: true,opacity : 1});
  var jupiterMesh = new THREE.Mesh(jupiterSphere, jupiterMaterial);
  jupiterMesh.position.set(720,0,0);
  jupiterMesh.callback = youtube ;
@@ -113,31 +113,31 @@ var mercuryMesh = new THREE.Mesh(mercurySphere, mercuryMaterial);
 
  //saturn
  var saturnSphere = new THREE.SphereGeometry(48,80,80);
- var saturnMaterial = new THREE.MeshBasicMaterial({ map : new THREE.TextureLoader().load('./images/images(6).jpg') });
+ var saturnMaterial = new THREE.MeshBasicMaterial({ map : new THREE.TextureLoader().load('./images/images(6).jpg') ,transparent: true,opacity : 1});
  var saturnMesh = new THREE.Mesh(saturnSphere, saturnMaterial);
- saturnMesh.position.set(1160,0,0);
+ saturnMesh.position.set(860,0,-400);
  saturnMesh.callback = threejs ;
  saturnPivot.add( saturnMesh );
 
  //uranus
- var  uranusSphere = new THREE.SphereGeometry(21,80,80);
- var uranusMaterial = new THREE.MeshBasicMaterial({ map : new THREE.TextureLoader().load('./images/images(7).jpg') });
+ var  uranusSphere = new THREE.SphereGeometry(31,80,80);
+ var uranusMaterial = new THREE.MeshBasicMaterial({ map : new THREE.TextureLoader().load('./images/images(7).jpg'),transparent: true,opacity : 1 });
  var uranusMesh = new THREE.Mesh(uranusSphere, uranusMaterial);
- uranusMesh.position.set(2120,0,0);
+ uranusMesh.position.set(-520,0,-1700);
  uranusMesh.callback = cricbuzz ;
  uranusPivot.add( uranusMesh );
 
  //neptun
- var neptunSphere = new THREE.SphereGeometry(20,80,80);
+ var neptunSphere = new THREE.SphereGeometry(50,80,80);
  var neptunMaterial = new THREE.MeshBasicMaterial({ map : new THREE.TextureLoader().load('./images/images(8).jpg') });
  var neptunMesh = new THREE.Mesh(neptunSphere, neptunMaterial);
- neptunMesh.position.set(3210,0,0);
+ neptunMesh.position.set(1910,0,-2100);
  neptunMesh.callback = youtube ;
  neptunPivot.add( neptunMesh );
 
  var i = 0 ;
 
- sunMesh.add(  mercuryPivot, venusPivot, earthPivot, marsPivot, jupiterPivot, saturnPivot, uranusPivot, neptunPivot ,starsPivot[i++] 
+ sunMesh.add(  jupiterPivot, saturnPivot, uranusPivot,  starsPivot[i++] 
     ,starsPivot[i++],starsPivot[i++],starsPivot[i++],starsPivot[i++],starsPivot[i++],starsPivot[i++],starsPivot[i++],starsPivot[i++]
     ,starsPivot[i++]);
  
@@ -146,23 +146,25 @@ var mercuryMesh = new THREE.Mesh(mercurySphere, mercuryMaterial);
 
  var raycaster = new THREE.Raycaster();
 var mouse = new THREE.Vector2();
+
 function wheel(event)
 {
-    event.preventDefault();
-    mouse.x = (event.clientX / renderer.domElement.clientWidth) * 2 - 1;
-    mouse.y =  - (event.clientY / renderer.domElement.clientHeight) * 2 + 1;
-    raycaster.setFromCamera(mouse , camera);
-    meshObjects = [mercuryMesh,venusMesh,earthMesh,marsMesh,jupiterMesh,saturnMesh,uranusMesh,neptunMesh,sunMesh] ;
-    var intersects = raycaster.intersectObjects(meshObjects);
-    if ( intersects.length > 0 )
-    {
-        for (  i = 0 ; i < 8 ; i++  )
-        {
-            intersects[i].object.callback();
-        }
-        canvas.style.cursor = "pointer" ;
-        
-    }
+    var i = 0,j = 0 ;
+    setInterval(function(){
+
+        camera.position.z = camera.position.z - 2;
+        camera.lookAt(new THREE.Vector3(j=j+1.5,i=i+1.5,0));
+        sunMaterial.opacity = sunMaterial.opacity - 0.006 ;
+        uranusMaterial.opacity = uranusMaterial.opacity - 0.006 ;
+        saturnMaterial.opacity = saturnMaterial.opacity - 0.006 ;
+        jupiterMaterial.opacity = jupiterMaterial.opacity - 0.006 ;
+    },10);
+
+    setTimeout(function(){
+       window.open('https://www.cricbuzz.com/','_self')   
+    },1200)
+
+   
 }
 
 
@@ -174,14 +176,6 @@ function animate()
 {
     requestAnimationFrame(animate);
     renderer.render(scene, camera);
-    mercuryPivot.rotation.y += 0.04;
-    venusPivot.rotation.y += 0.02;
-    earthPivot.rotation.y += 0.0099;
-    marsPivot.rotation.y += 0.0079;
-    jupiterPivot.rotation.y += 0.00559;
-    saturnPivot.rotation.y += 0.00329;
-    uranusPivot.rotation.y += 0.0019;
-    neptunPivot.rotation.y += 0.00099;
     starsPivot[3].rotation.z += -0.000059;
     starsPivot[8].rotation.z += 0.000059;
     for(i=0;i<5;i++)
