@@ -17,40 +17,40 @@ sunSphere.dynamic = true;
 
 
 var sunPivot  =new THREE.Object3D();
-var sG = new THREE.SphereGeometry(95,32,32);
+var sG = new THREE.SphereGeometry(90,32,32);
 var sM = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('./images/images(2).jpg')});
 var sMe =new THREE.Mesh(sG,sM);
-sMe.position.set(40,0,0);
+sMe.position.set(40,0,-20);
 sunPivot.add(sMe);
 
-var sG1 = new THREE.SphereGeometry(95,32,32);
+var sG1 = new THREE.SphereGeometry(92,32,32);
 var sM1 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('./images/images(2).jpg')});
 var sMe1 =new THREE.Mesh(sG1,sM1);
-sMe1.position.set(0,0,40);
+sMe1.position.set(20,0,40);
 sunPivot.add(sMe1);
 
-var sG2 = new THREE.SphereGeometry(95,32,32);
+var sG2 = new THREE.SphereGeometry(90,32,32);
 var sM2 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('./images/images(2).jpg')});
 var sMe2 =new THREE.Mesh(sG2,sM2);
-sMe2.position.set(-40,0,0);
+sMe2.position.set(-40,0,20);
 sunPivot.add(sMe2);
 
-var sG3 = new THREE.SphereGeometry(95,32,32);
+var sG3 = new THREE.SphereGeometry(92,32,32);
 var sM3 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('./images/images(2).jpg')});
 var sMe3 =new THREE.Mesh(sG3,sM3);
-sMe3.position.set(0,40,0);
+sMe3.position.set(0,40,20);
 sunPivot.add(sMe3);
 
-var sG4 = new THREE.SphereGeometry(95,32,32);
+var sG4 = new THREE.SphereGeometry(93,32,32);
 var sM4 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('./images/images(2).jpg')});
 var sMe4 =new THREE.Mesh(sG4,sM4);
-sMe4.position.set(0,-40,0);
+sMe4.position.set(0,-40,20);
 sunPivot.add(sMe4);
 
-var sG5 = new THREE.SphereGeometry(95,32,32);
+var sG5 = new THREE.SphereGeometry(91,32,32);
 var sM5 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('./images/images(2).jpg')});
 var sMe5 =new THREE.Mesh(sG5,sM5);
-sMe5.position.set(0,0,-40);
+sMe5.position.set(0,-20,-40);
 sunPivot.add(sMe5);
 
         sMe.visible = false;
@@ -280,8 +280,8 @@ function animate()
     requestAnimationFrame(animate);
     renderer.render(scene, camera);
 
-    sunPivot.rotation.y += 0.005;
-    sunPivot.rotation.x += 0.001;
+    sunPivot.rotation.y += 0.008;
+    sunPivot.rotation.x += 0.005;
     sMe.rotation.y -= 0.03;
     sMe1.rotation.y += 0.04;
     sMe2.rotation.y += 0.05;
