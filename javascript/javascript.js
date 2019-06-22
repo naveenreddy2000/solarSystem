@@ -11,9 +11,59 @@ renderer.setSize( width , height );
 camera.position.set(0,0,1500);
 
 var sunSphere = new THREE.SphereGeometry(115,80,80);
-var sunMaterial = new THREE.MeshBasicMaterial({color : 0xFF7A11,transparent: true,opacity : 1}); 
+var sunMaterial = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('./images/images(2).jpg') ,transparent: true,opacity : 1}); 
 var sunMesh = new THREE.Mesh(sunSphere, sunMaterial);
-sunMesh.callback = cricbuzz ;
+sunSphere.dynamic = true;
+
+
+var sunPivot  =new THREE.Object3D();
+var sG = new THREE.SphereGeometry(95,32,32);
+var sM = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('./images/images(2).jpg')});
+var sMe =new THREE.Mesh(sG,sM);
+sMe.position.set(40,0,0);
+sunPivot.add(sMe);
+
+var sG1 = new THREE.SphereGeometry(95,32,32);
+var sM1 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('./images/images(2).jpg')});
+var sMe1 =new THREE.Mesh(sG1,sM1);
+sMe1.position.set(0,0,40);
+sunPivot.add(sMe1);
+
+var sG2 = new THREE.SphereGeometry(95,32,32);
+var sM2 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('./images/images(2).jpg')});
+var sMe2 =new THREE.Mesh(sG2,sM2);
+sMe2.position.set(-40,0,0);
+sunPivot.add(sMe2);
+
+var sG3 = new THREE.SphereGeometry(95,32,32);
+var sM3 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('./images/images(2).jpg')});
+var sMe3 =new THREE.Mesh(sG3,sM3);
+sMe3.position.set(0,40,0);
+sunPivot.add(sMe3);
+
+var sG4 = new THREE.SphereGeometry(95,32,32);
+var sM4 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('./images/images(2).jpg')});
+var sMe4 =new THREE.Mesh(sG4,sM4);
+sMe4.position.set(0,-40,0);
+sunPivot.add(sMe4);
+
+var sG5 = new THREE.SphereGeometry(95,32,32);
+var sM5 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('./images/images(2).jpg')});
+var sMe5 =new THREE.Mesh(sG5,sM5);
+sMe5.position.set(0,0,-40);
+sunPivot.add(sMe5);
+
+        sMe.visible = false;
+        sMe1.visible = false;
+        sMe2.visible = false;
+        sMe3.visible = false;
+        sMe4.visible = false;
+        sMe5.visible = false;
+
+
+
+scene.add(sunPivot);
+
 
 
 var stars = [] ;
@@ -44,118 +94,169 @@ for(i=0;i<10;i++)
 }
 
 
-cameraPivot = new THREE.Object3D();
-        mercuryPivot = new THREE.Object3D();
-        venusPivot = new THREE.Object3D();
-        earthPivot = new THREE.Object3D();
-        marsPivot = new THREE.Object3D();
+
         jupiterPivot = new THREE.Object3D();
         saturnPivot = new THREE.Object3D();
-        uranusPivot = new THREE.Object3D();
-        neptunPivot = new THREE.Object3D();
-
+        
 
  function cricbuzz()
 {
     window.open('https://www.cricbuzz.com/');
 }
-function nitdgp()
-{
-    window.open('https://www.nitdgp.ac.in/');
-}
-function threejs()
-{
-    window.open('https://threejs.org/');
-}
-function youtube()
-{
-    window.open('https://www.youtube.com/');
-}
-        
-        
- //mercury
-var mercurySphere = new THREE.SphereGeometry(2,80,80);
-var mercuryMaterial = new THREE.MeshBasicMaterial({ map : new THREE.TextureLoader().load('./images/images(1).jpg') });  
-var mercuryMesh = new THREE.Mesh(mercurySphere, mercuryMaterial);
- mercuryMesh.position.set(240,0,0);
- mercuryMesh.callback = cricbuzz ;
- mercuryPivot.add( mercuryMesh );
- //venus
- var venusSphere = new THREE.SphereGeometry(5,80,80);
- var venusMaterial = new THREE.MeshBasicMaterial({ map : new THREE.TextureLoader().load('./images/images(2).jpg') });
- var venusMesh = new THREE.Mesh(venusSphere, venusMaterial);
- venusMesh.position.set(275,0,0);
- venusMesh.callback = youtube ;
- venusPivot.add( venusMesh );
- //earth
- var earthSphere = new THREE.SphereGeometry(10,40,80);
- var earthMaterial = new THREE.MeshBasicMaterial({ map : new THREE.TextureLoader().load('./images/images(3).jpg') });
- var earthMesh = new THREE.Mesh(earthSphere, earthMaterial);
- earthMesh.position.set(300,0,0);
- earthMesh.callback = nitdgp ;
- earthPivot.add( earthMesh );
 
- //mars
- var marsSphere = new THREE.SphereGeometry(3,80,80);
- var marsMaterial = new THREE.MeshBasicMaterial({ map : new THREE.TextureLoader().load('./images/images(4).jpg') });
- var marsMesh = new THREE.Mesh(marsSphere, marsMaterial);
- marsMesh.position.set(360,0,0);
- marsMesh.callback = threejs ;
- marsPivot.add( marsMesh );
 
- //jupiter
- var jupiterSphere = new THREE.SphereGeometry(57,80,80);
- var jupiterMaterial = new THREE.MeshBasicMaterial({ map : new THREE.TextureLoader().load('./images/images(5).jpg'),transparent: true,opacity : 1});
+ 
+ var jupiterSphere = new THREE.SphereGeometry(60,80,80);
+ var jupiterMaterial = new THREE.MeshBasicMaterial({ map : new THREE.TextureLoader().load('./images/images(1).jpg'),transparent: true,opacity : 1});
  var jupiterMesh = new THREE.Mesh(jupiterSphere, jupiterMaterial);
- jupiterMesh.position.set(720,0,0);
- jupiterMesh.callback = youtube ;
+ jupiterMesh.position.set(-500,0,-500);
  jupiterPivot.add( jupiterMesh );
 
- //saturn
- var saturnSphere = new THREE.SphereGeometry(48,80,80);
- var saturnMaterial = new THREE.MeshBasicMaterial({ map : new THREE.TextureLoader().load('./images/images(6).jpg') ,transparent: true,opacity : 1});
+ var jG = new THREE.SphereGeometry(50,32,32);
+ var jM = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('./images/images(1).jpg')});
+ var jMe =new THREE.Mesh(jG,jM);
+ jMe.position.set(-515,0,-480);
+ jupiterPivot.add(jMe);
+ 
+ var jG1 = new THREE.SphereGeometry(50,32,32);
+ var jM1 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('./images/images(1).jpg')});
+ var jMe1 =new THREE.Mesh(jG1,jM1);
+ jMe1.position.set(-510,20,-510);
+ jupiterPivot.add(jMe1);
+ 
+ var jG2 = new THREE.SphereGeometry(50,32,32);
+ var jM2 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('./images/images(1).jpg')});
+ var jMe2 =new THREE.Mesh(jG2,jM2);
+ jMe2.position.set(-520,0,-520);
+ jupiterPivot.add(jMe2);
+ 
+ var jG3 = new THREE.SphereGeometry(50,32,32);
+ var jM3 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('./images/images(1).jpg')});
+ var jMe3 =new THREE.Mesh(jG3,jM3);
+ jMe3.position.set(-500,-20,-500);
+ jupiterPivot.add(jMe3);
+ 
+ var jG4 = new THREE.SphereGeometry(50,32,32);
+ var jM4 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('./images/images(1).jpg')});
+ var jMe4 =new THREE.Mesh(jG4,jM4);
+ jMe4.position.set(-500,20,-500);
+ jupiterPivot.add(jMe4);
+ 
+ var jG5 = new THREE.SphereGeometry(50,32,32);
+ var jM5 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('./images/images(1).jpg')});
+ var jMe5 =new THREE.Mesh(jG5,jM5);
+ jMe5.position.set(-485,0,-485);
+ jupiterPivot.add(jMe5);
+
+ 
+
+scene.add(jupiterPivot);
+
+
+
+jMe.visible = false;
+        jMe1.visible = false;
+        jMe2.visible = false;
+        jMe3.visible = false;
+        jMe4.visible = false;
+        jMe5.visible = false;
+
+
+
+
+
+
+ var saturnSphere = new THREE.SphereGeometry(50,80,80);
+ var saturnMaterial = new THREE.MeshBasicMaterial({ map : new THREE.TextureLoader().load('./images/images(7).jpg') ,transparent: true,opacity : 1});
  var saturnMesh = new THREE.Mesh(saturnSphere, saturnMaterial);
- saturnMesh.position.set(860,0,-400);
- saturnMesh.callback = threejs ;
+ saturnMesh.position.set(300,300,-300);
  saturnPivot.add( saturnMesh );
 
- //uranus
- var  uranusSphere = new THREE.SphereGeometry(31,80,80);
- var uranusMaterial = new THREE.MeshBasicMaterial({ map : new THREE.TextureLoader().load('./images/images(7).jpg'),transparent: true,opacity : 1 });
- var uranusMesh = new THREE.Mesh(uranusSphere, uranusMaterial);
- uranusMesh.position.set(-520,0,-1700);
- uranusMesh.callback = cricbuzz ;
- uranusPivot.add( uranusMesh );
+ var pG = new THREE.SphereGeometry(40,32,32);
+ var pM = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('./images/images(7).jpg')});
+ var pMe =new THREE.Mesh(pG,pM);
+ pMe.position.set(300,300,-279);
+ saturnPivot.add(pMe);
+ 
+ var pG1 = new THREE.SphereGeometry(40,32,32);
+ var pM1 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('./images/images(7).jpg')});
+ var pMe1 =new THREE.Mesh(pG1,pM1);
+ pMe1.position.set(318,304,-300);
+ saturnPivot.add(pMe1);
+ 
+ var pG2 = new THREE.SphereGeometry(40,32,32);
+ var pM2 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('./images/images(7).jpg')});
+ var pMe2 =new THREE.Mesh(jG2,jM2);
+ pMe2.position.set(300,300,-312);
+ saturnPivot.add(pMe2);
+ 
+ var pG3 = new THREE.SphereGeometry(40,32,32);
+ var pM3 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('./images/images(7).jpg')});
+ var pMe3 =new THREE.Mesh(pG3,pM3);
+ pMe3.position.set(300,280,-300);
+ saturnPivot.add(pMe3);
+ 
+ var pG4 = new THREE.SphereGeometry(40,32,32);
+ var pM4 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('./images/images(7).jpg')});
+ var pMe4 =new THREE.Mesh(pG4,pM4);
+ pMe4.position.set(280,295,-300);
+ saturnPivot.add(pMe4);
+ 
+ var pG5 = new THREE.SphereGeometry(40,32,32);
+ var pM5 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('./images/images(7).jpg')});
+ var pMe5 =new THREE.Mesh(pG5,pM5);
+ pMe5.position.set(283,315,-300);
+ saturnPivot.add(pMe5);
 
- //neptun
- var neptunSphere = new THREE.SphereGeometry(50,80,80);
- var neptunMaterial = new THREE.MeshBasicMaterial({ map : new THREE.TextureLoader().load('./images/images(8).jpg') });
- var neptunMesh = new THREE.Mesh(neptunSphere, neptunMaterial);
- neptunMesh.position.set(1910,0,-2100);
- neptunMesh.callback = youtube ;
- neptunPivot.add( neptunMesh );
+
+ scene.add(saturnPivot);
+
+
+
+pMe.visible = false;
+        pMe1.visible = false;
+        pMe2.visible = false;
+        pMe3.visible = false;
+        pMe4.visible = false;
+        pMe5.visible = false;
+
+
+
 
  var i = 0 ;
 
- sunMesh.add(  jupiterPivot, saturnPivot, uranusPivot,  starsPivot[i++] 
-    ,starsPivot[i++],starsPivot[i++],starsPivot[i++],starsPivot[i++],starsPivot[i++],starsPivot[i++],starsPivot[i++],starsPivot[i++]
-    ,starsPivot[i++]);
+ scene.add(  jupiterPivot, saturnPivot, starsPivot[i++],starsPivot[i++],starsPivot[i++],starsPivot[i++],starsPivot[i++],starsPivot[i++],starsPivot[i++],starsPivot[i++],starsPivot[i++]);
  
 
  scene.add(sunMesh);
 
- var raycaster = new THREE.Raycaster();
-var mouse = new THREE.Vector2();
+
 
 function wheel(event)
 {
     var i = 0,j = 0 ;
+    sMe.visible = false;
+    sMe1.visible = false;
+    sMe2.visible = false;
+    sMe3.visible = false;
+    sMe4.visible = false;
+    sMe5.visible = false;
+    jMe.visible = false;
+    jMe1.visible = false;
+    jMe2.visible = false;
+    jMe3.visible = false;
+    jMe4.visible = false;
+    jMe5.visible = false;
+    pMe.visible = false;
+    pMe1.visible = false;
+    pMe2.visible = false;
+    pMe3.visible = false;
+    pMe4.visible = false;
+    pMe5.visible = false;
     setInterval(function(){
-
         camera.position.z = camera.position.z - 2;
         camera.lookAt(new THREE.Vector3(j=j+1.5,i=i+1.5,0));
         sunMaterial.opacity = sunMaterial.opacity - 0.006 ;
-        uranusMaterial.opacity = uranusMaterial.opacity - 0.006 ;
         saturnMaterial.opacity = saturnMaterial.opacity - 0.006 ;
         jupiterMaterial.opacity = jupiterMaterial.opacity - 0.006 ;
     },10);
@@ -171,11 +272,57 @@ function wheel(event)
 document.addEventListener('wheel',wheel,false);
 
 
+var raycaster = new THREE.Raycaster();
+var mouse = new THREE.Vector2();
 
 function animate()
 {
     requestAnimationFrame(animate);
     renderer.render(scene, camera);
+
+    sunPivot.rotation.y += 0.005;
+    sunPivot.rotation.x += 0.01;
+    sMe.rotation.y -= 0.03;
+    sMe1.rotation.y += 0.04;
+    sMe2.rotation.y += 0.05;
+    sMe3.rotation.y -= 0.06;
+    sMe4.rotation.y += 0.07;
+    sMe5.rotation.y += 0.03;
+    sMe.rotation.z -= 0.03;
+    sMe1.rotation.x += 0.04;
+    sMe2.rotation.z += 0.05;
+    sMe3.rotation.x -= 0.06;
+    sMe4.rotation.z += 0.07;
+    sMe5.rotation.x += 0.03;
+    jMe.rotation.y -= 0.04;
+    jMe1.rotation.y += 0.05;
+    jMe2.rotation.y += 0.06;
+    jMe3.rotation.y -= 0.07;
+    jMe4.rotation.y += 0.03;
+    jMe5.rotation.y += 0.04;
+    jMe.rotation.z -= 0.04;
+    jMe1.rotation.x += 0.05;
+    jMe2.rotation.z += 0.06;
+    jMe3.rotation.x -= 0.07;
+    jMe4.rotation.z += 0.03;
+    jMe5.rotation.x += 0.04;
+    jupiterMesh.rotation.y -= 0.001;
+    jupiterPivot.rotation.y += 0.0005;
+    pMe.rotation.y -= 0.05;
+    pMe1.rotation.y += 0.06;
+    pMe2.rotation.y += 0.07;
+    pMe3.rotation.y -= 0.03;
+    pMe4.rotation.y += 0.04;
+    pMe5.rotation.y += 0.05;
+    pMe.rotation.z -= 0.05;
+    pMe1.rotation.x += 0.06;
+    pMe2.rotation.x += 0.07;
+    pMe3.rotation.x -= 0.03;
+    pMe4.rotation.z += 0.04;
+    pMe5.rotation.z += 0.05;
+    saturnMesh.rotation.y -= 0.001;
+    saturnPivot.rotation.y += 0.0005;
+
     starsPivot[3].rotation.z += -0.000059;
     starsPivot[8].rotation.z += 0.000059;
     for(i=0;i<5;i++)
@@ -195,3 +342,84 @@ animate();
 
 
   
+function mouseMove(event)
+{
+    var mouse = new THREE.Vector2();
+    mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+    mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+
+    var raycaster = new THREE.Raycaster();
+    raycaster.setFromCamera( mouse, camera );
+    var clicks = [sunMesh];
+    var clicks1 = [jupiterMesh];
+    var clicks2 = [saturnMesh];
+
+    var intersects = raycaster.intersectObjects( clicks );
+    var intersects1 = raycaster.intersectObjects( clicks1 );
+    var intersects2 = raycaster.intersectObjects( clicks2 );
+
+    if(intersects.length !=0)
+    {
+        document.getElementById('scene').style.cursor = 'pointer';
+        sMe.visible = true;
+        sMe1.visible = true;
+        sMe2.visible = true;
+        sMe3.visible = true;
+        sMe4.visible = true;
+        sMe5.visible = true;
+    }
+    else
+    {
+        document.getElementById('scene').style.cursor = 'default';
+        sMe.visible = false;
+        sMe1.visible = false;
+        sMe2.visible = false;
+        sMe3.visible = false;
+        sMe4.visible = false;
+        sMe5.visible = false;
+    }
+    if(intersects1.length !=0)
+    {
+        document.getElementById('scene').style.cursor = 'pointer';
+        jMe.visible = true;
+        jMe1.visible = true;
+        jMe2.visible = true;
+        jMe3.visible = true;
+        jMe4.visible = true;
+        jMe5.visible = true;
+        
+    }
+    else
+    {
+        document.getElementById('scene').style.cursor = 'default';
+        jMe.visible = false;
+        jMe1.visible = false;
+        jMe2.visible = false;
+        jMe3.visible = false;
+        jMe4.visible = false;
+        jMe5.visible = false;
+    }
+    if(intersects2.length !=0)
+    {
+        document.getElementById('scene').style.cursor = 'pointer';
+        pMe.visible = true;
+        pMe1.visible = true;
+        pMe2.visible = true;
+        pMe3.visible = true;
+        pMe4.visible = true;
+        pMe5.visible = true;
+        
+    }
+    else
+    {
+        document.getElementById('scene').style.cursor = 'default';
+        pMe.visible = false;
+        pMe1.visible = false;
+        pMe2.visible = false;
+        pMe3.visible = false;
+        pMe4.visible = false;
+        pMe5.visible = false;
+    }
+}
+
+document.addEventListener('mousemove',mouseMove,false);
