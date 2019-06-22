@@ -281,7 +281,7 @@ function animate()
     renderer.render(scene, camera);
 
     sunPivot.rotation.y += 0.005;
-    sunPivot.rotation.x += 0.01;
+    sunPivot.rotation.x += 0.001;
     sMe.rotation.y -= 0.03;
     sMe1.rotation.y += 0.04;
     sMe2.rotation.y += 0.05;
