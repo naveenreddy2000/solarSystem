@@ -8,47 +8,52 @@ var width = window.innerWidth;
 var height = window.innerHeight;
 renderer.setSize( width , height );
 
-camera.position.set(0,0,1500);
+camera.position.set(0,0,1262);
+
+camera.lookAt(new THREE.Vector3(178,178,0));
+var k =178;
+var l =178;
+
 
 var sunSphere = new THREE.SphereGeometry(115,80,80);
-var sunMaterial = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('./images/images(2).jpg') ,transparent: true,opacity : 1}); 
+var sunMaterial = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('http://localhost:8000/image2') ,transparent: true,opacity : 1}); 
 var sunMesh = new THREE.Mesh(sunSphere, sunMaterial);
 sunSphere.dynamic = true;
 
 
 var sunPivot  =new THREE.Object3D();
 var sG = new THREE.SphereGeometry(90,32,32);
-var sM = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('./images/images(2).jpg')});
+var sM = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('http://localhost:8000/image2')});
 var sMe =new THREE.Mesh(sG,sM);
 sMe.position.set(40,0,-10);
 sunPivot.add(sMe);
 
 var sG1 = new THREE.SphereGeometry(92,32,32);
-var sM1 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('./images/images(2).jpg')});
+var sM1 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('http://localhost:8000/image2')});
 var sMe1 =new THREE.Mesh(sG1,sM1);
 sMe1.position.set(10,0,40);
 sunPivot.add(sMe1);
 
 var sG2 = new THREE.SphereGeometry(90,32,32);
-var sM2 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('./images/images(2).jpg')});
+var sM2 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('http://localhost:8000/image2')});
 var sMe2 =new THREE.Mesh(sG2,sM2);
 sMe2.position.set(-40,0,10);
 sunPivot.add(sMe2);
 
 var sG3 = new THREE.SphereGeometry(92,32,32);
-var sM3 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('./images/images(2).jpg')});
+var sM3 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('http://localhost:8000/image2')});
 var sMe3 =new THREE.Mesh(sG3,sM3);
 sMe3.position.set(0,40,10);
 sunPivot.add(sMe3);
 
 var sG4 = new THREE.SphereGeometry(93,32,32);
-var sM4 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('./images/images(2).jpg')});
+var sM4 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('http://localhost:8000/image2')});
 var sMe4 =new THREE.Mesh(sG4,sM4);
 sMe4.position.set(0,-40,10);
 sunPivot.add(sMe4);
 
 var sG5 = new THREE.SphereGeometry(91,32,32);
-var sM5 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('./images/images(2).jpg')});
+var sM5 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('http://localhost:8000/image2')});
 var sMe5 =new THREE.Mesh(sG5,sM5);
 sMe5.position.set(0,-10,-40);
 sunPivot.add(sMe5);
@@ -99,51 +104,51 @@ for(i=0;i<10;i++)
         saturnPivot = new THREE.Object3D();
         
 
- function cricbuzz()
+/* function cricbuzz()
 {
     window.open('https://www.cricbuzz.com/');
 }
-
+*/
 
  
  var jupiterSphere = new THREE.SphereGeometry(60,80,80);
- var jupiterMaterial = new THREE.MeshBasicMaterial({ map : new THREE.TextureLoader().load('./images/images(1).jpg'),transparent: true,opacity : 1});
+ var jupiterMaterial = new THREE.MeshBasicMaterial({ map : new THREE.TextureLoader().load('http://localhost:8000/image1'),transparent: true,opacity : 1});
  var jupiterMesh = new THREE.Mesh(jupiterSphere, jupiterMaterial);
  jupiterMesh.position.set(-500,0,-500);
  jupiterPivot.add( jupiterMesh );
 
  var jG = new THREE.SphereGeometry(50,32,32);
- var jM = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('./images/images(1).jpg')});
+ var jM = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('http://localhost:8000/image1')});
  var jMe =new THREE.Mesh(jG,jM);
  jMe.position.set(-515,0,-480);
  jupiterPivot.add(jMe);
  
  var jG1 = new THREE.SphereGeometry(50,32,32);
- var jM1 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('./images/images(1).jpg')});
+ var jM1 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('http://localhost:8000/image1')});
  var jMe1 =new THREE.Mesh(jG1,jM1);
  jMe1.position.set(-510,20,-510);
  jupiterPivot.add(jMe1);
  
  var jG2 = new THREE.SphereGeometry(50,32,32);
- var jM2 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('./images/images(1).jpg')});
+ var jM2 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('http://localhost:8000/image1')});
  var jMe2 =new THREE.Mesh(jG2,jM2);
  jMe2.position.set(-520,0,-520);
  jupiterPivot.add(jMe2);
  
  var jG3 = new THREE.SphereGeometry(50,32,32);
- var jM3 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('./images/images(1).jpg')});
+ var jM3 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('http://localhost:8000/image1')});
  var jMe3 =new THREE.Mesh(jG3,jM3);
  jMe3.position.set(-500,-20,-500);
  jupiterPivot.add(jMe3);
  
  var jG4 = new THREE.SphereGeometry(50,32,32);
- var jM4 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('./images/images(1).jpg')});
+ var jM4 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('http://localhost:8000/image1')});
  var jMe4 =new THREE.Mesh(jG4,jM4);
  jMe4.position.set(-500,20,-500);
  jupiterPivot.add(jMe4);
  
  var jG5 = new THREE.SphereGeometry(50,32,32);
- var jM5 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('./images/images(1).jpg')});
+ var jM5 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('http://localhost:8000/image1')});
  var jMe5 =new THREE.Mesh(jG5,jM5);
  jMe5.position.set(-485,0,-485);
  jupiterPivot.add(jMe5);
@@ -167,43 +172,43 @@ jMe.visible = false;
 
 
  var saturnSphere = new THREE.SphereGeometry(50,80,80);
- var saturnMaterial = new THREE.MeshBasicMaterial({ map : new THREE.TextureLoader().load('./images/images(7).jpg') ,transparent: true,opacity : 1});
+ var saturnMaterial = new THREE.MeshBasicMaterial({ map : new THREE.TextureLoader().load('http://localhost:8000/image7') ,transparent: true,opacity : 1});
  var saturnMesh = new THREE.Mesh(saturnSphere, saturnMaterial);
  saturnMesh.position.set(300,300,-300);
  saturnPivot.add( saturnMesh );
 
  var pG = new THREE.SphereGeometry(40,32,32);
- var pM = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('./images/images(7).jpg')});
+ var pM = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('http://localhost:8000/image7')});
  var pMe =new THREE.Mesh(pG,pM);
  pMe.position.set(300,300,-279);
  saturnPivot.add(pMe);
  
  var pG1 = new THREE.SphereGeometry(40,32,32);
- var pM1 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('./images/images(7).jpg')});
+ var pM1 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('http://localhost:8000/image7')});
  var pMe1 =new THREE.Mesh(pG1,pM1);
  pMe1.position.set(318,304,-300);
  saturnPivot.add(pMe1);
  
  var pG2 = new THREE.SphereGeometry(40,32,32);
- var pM2 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('./images/images(7).jpg')});
+ var pM2 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('http://localhost:8000/image7')});
  var pMe2 =new THREE.Mesh(jG2,jM2);
  pMe2.position.set(300,300,-312);
  saturnPivot.add(pMe2);
  
  var pG3 = new THREE.SphereGeometry(40,32,32);
- var pM3 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('./images/images(7).jpg')});
+ var pM3 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('http://localhost:8000/image7')});
  var pMe3 =new THREE.Mesh(pG3,pM3);
  pMe3.position.set(300,280,-300);
  saturnPivot.add(pMe3);
  
  var pG4 = new THREE.SphereGeometry(40,32,32);
- var pM4 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('./images/images(7).jpg')});
+ var pM4 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('http://localhost:8000/image7')});
  var pMe4 =new THREE.Mesh(pG4,pM4);
  pMe4.position.set(280,295,-300);
  saturnPivot.add(pMe4);
  
  var pG5 = new THREE.SphereGeometry(40,32,32);
- var pM5 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('./images/images(7).jpg')});
+ var pM5 = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('http://localhost:8000/image7')});
  var pMe5 =new THREE.Mesh(pG5,pM5);
  pMe5.position.set(283,315,-300);
  saturnPivot.add(pMe5);
@@ -234,36 +239,39 @@ pMe.visible = false;
 
 function wheel(event)
 {
-    var i = 0,j = 0 ;
-    sMe.visible = false;
-    sMe1.visible = false;
-    sMe2.visible = false;
-    sMe3.visible = false;
-    sMe4.visible = false;
-    sMe5.visible = false;
-    jMe.visible = false;
-    jMe1.visible = false;
-    jMe2.visible = false;
-    jMe3.visible = false;
-    jMe4.visible = false;
-    jMe5.visible = false;
-    pMe.visible = false;
-    pMe1.visible = false;
-    pMe2.visible = false;
-    pMe3.visible = false;
-    pMe4.visible = false;
-    pMe5.visible = false;
-    setInterval(function(){
-        camera.position.z = camera.position.z - 2;
-        camera.lookAt(new THREE.Vector3(j=j+1.5,i=i+1.5,0));
-        sunMaterial.opacity = sunMaterial.opacity - 0.006 ;
-        saturnMaterial.opacity = saturnMaterial.opacity - 0.006 ;
-        jupiterMaterial.opacity = jupiterMaterial.opacity - 0.006 ;
-    },10);
-
-    setTimeout(function(){
-       window.open('https://www.cricbuzz.com/','_self')   
-    },1200)
+    if(event.deltaY<0){
+        var i = 0,j = 0 ;
+        sMe.visible = false;
+        sMe1.visible = false;
+        sMe2.visible = false;
+        sMe3.visible = false;
+        sMe4.visible = false;
+        sMe5.visible = false;
+        jMe.visible = false;
+        jMe1.visible = false;
+        jMe2.visible = false;
+        jMe3.visible = false;
+        jMe4.visible = false;
+        jMe5.visible = false;
+        pMe.visible = false;
+        pMe1.visible = false;
+        pMe2.visible = false;
+        pMe3.visible = false;
+        pMe4.visible = false;
+        pMe5.visible = false;
+        setInterval(function(){
+            camera.position.z = camera.position.z - 2;
+            camera.lookAt(new THREE.Vector3(k=k+1.5,l=l+1.5,0));
+            sunMaterial.opacity = sunMaterial.opacity - 0.006 ;
+            saturnMaterial.opacity = saturnMaterial.opacity - 0.006 ;
+            jupiterMaterial.opacity = jupiterMaterial.opacity - 0.006 ;
+        },10);
+    
+        setTimeout(function(){
+           window.open('http://localhost:8000/page1','_self');   
+        },1200)
+    }
+   
 
    
 }
@@ -334,6 +342,11 @@ function animate()
     {
         starsPivot[i].rotation.y += -0.000059;
         starsPivot[i].rotation.z += -0.000059;
+    }
+    if(camera.position.z<1500)
+    {
+        camera.position.z = camera.position.z + 2;
+        camera.lookAt(new THREE.Vector3(k=k-k-1.5,l=l-1.5,0));
     }
     
     
