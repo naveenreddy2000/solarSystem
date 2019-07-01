@@ -19,7 +19,7 @@ console.log(pMesh);
 scene.add(pMesh);
 
 
-var directionalLight = new THREE.DirectionalLight( 0xff9001, 1 );
+var directionalLight = new THREE.DirectionalLight( 0x4191db, 1 );
 directionalLight.castShadow = true;
 directionalLight.position.z =-1;
 console.log(Math.random());
@@ -60,19 +60,19 @@ sMesh8.position.set(-480,100,-380);
 scene.add(sMesh8);
 
 
-var light1 = new THREE.PointLight( 0xff0000, 1 );
+var light1 = new THREE.PointLight( 0x0f86f4, 1 );
 light1.position.set(-480,100,-380);
 scene.add( light1 );
-var light2 = new THREE.PointLight( 0xff0000, 1 );
+var light2 = new THREE.PointLight( 0x0f86f4, 1 );
 light2.position.set(280,180,-380);
 scene.add( light2 );
-var light3 = new THREE.PointLight(0xff0000, 1);
+var light3 = new THREE.PointLight(0x0f86f4, 1);
 light3.position.set(350,280,-380);
 scene.add( light3 );
-var light4 = new THREE.PointLight( 0xff0000, 1 );
+var light4 = new THREE.PointLight( 0x0f86f4, 1 );
 light4.position.set(380,150,-380);
 scene.add( light4 );
-var light5 = new THREE.PointLight( 0xff0000, 1 );
+var light5 = new THREE.PointLight( 0x0f86f4f, 1 );
 light5.position.set(-250,160,-380);
 scene.add( light5 );
 

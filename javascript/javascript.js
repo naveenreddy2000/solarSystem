@@ -7,12 +7,11 @@ document.body.appendChild(renderer.domElement);
 var width = window.innerWidth;
 var height = window.innerHeight;
 renderer.setSize( width , height );
+camera.position.z = 810;
+camera.lookAt(new THREE.Vector3(180,180,0));
 
-camera.position.set(0,0,1262);
-
-camera.lookAt(new THREE.Vector3(178,178,0));
-var k =178;
-var l =178;
+var k =180;
+var l =180;
 
 
 var sunSphere = new THREE.SphereGeometry(115,80,80);
@@ -268,7 +267,8 @@ function wheel(event)
         },10);
     
         setTimeout(function(){
-           window.open('http://localhost:8000/page1','_self');   
+           window.open('http://localhost:8000/page1','_self');  
+           console.log(k + ' ' + l + ' ' + camera.position.z); 
         },1200)
     }
    
@@ -315,7 +315,7 @@ function animate()
     jMe4.rotation.z += 0.03;
     jMe5.rotation.x += 0.04;
     jupiterMesh.rotation.y -= 0.001;
-    jupiterPivot.rotation.y += 0.0005;
+    jupiterPivot.rotation.y += 0.0003;
     pMe.rotation.y -= 0.05;
     pMe1.rotation.y += 0.06;
     pMe2.rotation.y += 0.07;
@@ -329,7 +329,7 @@ function animate()
     pMe4.rotation.z += 0.04;
     pMe5.rotation.z += 0.05;
     saturnMesh.rotation.y -= 0.001;
-    saturnPivot.rotation.y += 0.0005;
+    saturnPivot.rotation.y += 0.0003;
 
     starsPivot[3].rotation.z += -0.000059;
     starsPivot[8].rotation.z += 0.000059;
@@ -343,10 +343,10 @@ function animate()
         starsPivot[i].rotation.y += -0.000059;
         starsPivot[i].rotation.z += -0.000059;
     }
-    if(camera.position.z<1500)
+    if(camera.position.z<1050)
     {
         camera.position.z = camera.position.z + 2;
-        camera.lookAt(new THREE.Vector3(k=k-k-1.5,l=l-1.5,0));
+        camera.lookAt(new THREE.Vector3(k=k-1.5,l=l-1.5,0));
     }
     
     
