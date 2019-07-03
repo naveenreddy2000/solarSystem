@@ -1,3 +1,9 @@
+
+import * as THREE from './build/three.module.js';
+import {OBJLoader} from './OBJLoader.js'
+
+var mesh;
+var object;
 var scene = new THREE.Scene();
 const width = window.innerWidth;
 const height = window.innerHeight;
@@ -15,14 +21,14 @@ var planet = new THREE.SphereGeometry(22,10,15);
 var pMat = new THREE.MeshPhongMaterial({transparent:true,opacity:1,  color:0xffffff});
 var pMesh = new THREE.Mesh(planet,pMat);
 pMesh.scale.x = 1.5;
-console.log(pMesh);
 scene.add(pMesh);
 
 
-var directionalLight = new THREE.DirectionalLight( 0x4191db, 1 );
+var directionalLight = new THREE.DirectionalLight( 0xffffff, 1 );
 directionalLight.castShadow = true;
-directionalLight.position.z =-1;
-console.log(Math.random());
+directionalLight.position.x =-1;
+directionalLight.position.y =-1;
+directionalLight.position.z =1;
 scene.add( directionalLight );
 
 var star = new THREE.SphereGeometry(1,32,32);
@@ -76,6 +82,43 @@ var light5 = new THREE.PointLight( 0x0f86f4f, 1 );
 light5.position.set(-250,160,-380);
 scene.add( light5 );
 
+
+
+
+
+function loadModel() {
+  object.traverse( function ( child ) {
+      if ( child.isMesh ) child.material.map = texture;
+  } );
+  object.position.y = 23.5;
+  object.scale.x = 0.1;
+  object.scale.y = 0.1;
+  object.scale.z = 0.1;
+  object.rotation.x -=0.5;
+  object.castShadow=true;
+  scene.add( object );
+}
+
+
+
+
+var manager = new THREE.LoadingManager( loadModel );
+
+
+
+
+var textureLoader = new THREE.TextureLoader( manager );
+var texture = textureLoader.load( 'pen.jpg' );
+
+
+
+
+var loader = new OBJLoader( manager );
+loader.load( 'pen.obj', function ( obj ) {
+object = obj;
+} );
+
+
 var k=0;
 var l=0;
 function frame()
@@ -96,6 +139,7 @@ function frame()
         camera.position.y += 0.025;
         camera.lookAt(new THREE.Vector3(i=i+0.01,j=j+0.05));
     }
+     
 
 }
 frame();
@@ -105,12 +149,11 @@ frame();
 function wheel(event)
 {   
 
-    
     if(event.deltaY>0){
 
        
     setInterval(function(){
-      //  pMesh.material.opacity-=0.005;
+        pMesh.material.opacity-=0.005;
         camera.position.z += 0.05;
         camera.position.y -= 0.025;
         camera.lookAt(new THREE.Vector3(i=i-0.01,j=j-0.05));
@@ -120,7 +163,7 @@ function wheel(event)
         
       window.open('http://localhost:8000/','_self');
            
-    },1200)
+    },800)
     }
    
 }

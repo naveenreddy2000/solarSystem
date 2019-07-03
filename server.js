@@ -6,11 +6,17 @@ const path = require('path')
 app.get('/',(req,res) => {
     res.sendFile('index.html',{root:path.join(__dirname,'./')});
 });
-app.get('/javascript/three.js',(req,res) => {
-    res.sendFile('javascript/three.js',{root:path.join(__dirname,'./')});
+app.get('/javascript/build/three.module.js',(req,res) => {
+    res.sendFile('javascript/build/three.module.js',{root:path.join(__dirname,'./')});
+});
+app.get('/build/three.module.js',(req,res) => {
+    res.sendFile('javascript/build/three.module.js',{root:path.join(__dirname,'./')});
 });
 app.get('/javascript/javascript.js',(req,res) => {
     res.sendFile('javascript/javascript.js',{root:path.join(__dirname,'./')});
+});
+app.get('/javascript/three.js',(req,res) => {
+    res.sendFile('javascript/three.js',{root:path.join(__dirname,'./')});
 });
 
 
@@ -33,6 +39,18 @@ app.get('/page1',(req,res) => {
 app.get('/javascript/page1.js',(req,res) => {
     res.sendFile('javascript/page1.js',{root:path.join(__dirname,'./')});
 });
+app.get('/javascript/ObjectLoader.js',(req,res) => {
+    res.sendFile('javascript/ObjectLoader.js',{root:path.join(__dirname,'./')});
+});
 
+app.get('/pen.obj',(req,res) => {
+    res.sendFile('pen.obj',{root:path.join(__dirname,'./')});
+});
+app.get('/pen.jpg',(req,res) => {
+    res.sendFile('pen.jpg',{root:path.join(__dirname,'./')});
+});
+app.get('/javascript/OBJLoader.js',(req,res) => {
+    res.sendFile('javascript/OBJLoader.js',{root:path.join(__dirname,'./')});
+});
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!\n http://localhost:8000/`));
