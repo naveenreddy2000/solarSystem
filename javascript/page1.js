@@ -157,6 +157,10 @@ function wheel(event)
         camera.position.z += 0.05;
         camera.position.y -= 0.025;
         camera.lookAt(new THREE.Vector3(i=i-0.01,j=j-0.05));
+        
+       
+
+
     },10);
 
     setTimeout(function(){
