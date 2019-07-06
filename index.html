@@ -1,15 +1,89 @@
 <html>
     <head>
         <title> The Solar System</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <style>
             body{
                 height: 100%;
                 margin: 0;
                 background-color: black;
             }
+            #scroll{
+                position: absolute;
+                color: white;
+                margin-top: 720px;
+                margin-left: 650px;
+                font-family: "Times New Roman", Times, serif;
+                font-style: oblique;
+            }
+            iframe{
+            display: none;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+        }
+            #earth{
+                position: absolute;
+                display: none;
+                color: white;
+                margin-top: 300px;
+                margin-left: 900px;
+                width: 200px;
+                height: 50px;
+            }
+            #earth:hover{cursor: pointer;}
+            #E{
+            position: absolute;
+            font-size: 30px;
+            color: honeydew;
+            margin-top: 10px;
+            transition: margin-top 1s , margin-left 1s;
+        }#E:hover{margin-top: 5px; margin-left: 64px;}
+        #A{
+            position: absolute;
+            font-size: 30px;
+            margin-left: 32px;
+            color: honeydew;
+            margin-top: 10px;
+            transition: margin-top 1s , margin-left 1s;
+        }#A:hover{margin-top: 5px;margin-left:128px;}
+        #R{
+            position: absolute;
+            font-size: 30px;
+            margin-left: 64px;
+            color: honeydew;
+            margin-top: 10px;
+            transition: margin-top 1s , margin-left 1s;
+        }#R:hover{margin-top: 5px;margin-left: 0px;}
+        #T{
+            position: absolute;
+            font-size: 30px;
+            margin-left: 96px;
+            color: honeydew;
+            margin-top: 10px;
+            transition: margin-top 1s , margin-left 1s;
+        }#T:hover{margin-top: 5px;margin-left:32px;}
+        #H{
+            position: absolute;
+            font-size: 30px;
+            margin-left: 128px;
+            color: honeydew;
+            margin-top: 10px;
+            transition: margin-top 1s , margin-left 1s;
+        }#H:hover{margin-top: 5px;margin-left:160px}
         </style>
     </head>
     <body id="scene">
+        <iframe src="http://localhost:8000/aavishkar" frameborder="0"></iframe>
+        <div id="earth">
+                <p id="E">E</p>
+                <p id="A">A</p>
+                <p id="R">R</p>
+                <p id="T">T</p>
+                <p id="H">H</p>
+        </div>
+        <h4 id='scroll'>"scroll up to navigate"</h3>
+        
         <script src="javascript/three.js"></script>
         <script src="javascript/javascript.js"></script>
     </body>

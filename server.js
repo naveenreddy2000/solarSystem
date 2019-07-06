@@ -29,6 +29,9 @@ app.get('/image1',(req,res) => {
 app.get('/image7',(req,res) => {
     res.sendFile('images/images(7).jpg',{root:path.join(__dirname,'./')});
 });
+app.get('/events',(req,res) => {
+    res.sendFile('events.html',{root:path.join(__dirname,'./')});
+});
 
 
 
@@ -52,5 +55,16 @@ app.get('/pen.jpg',(req,res) => {
 app.get('/javascript/OBJLoader.js',(req,res) => {
     res.sendFile('javascript/OBJLoader.js',{root:path.join(__dirname,'./')});
 });
-
+app.get('/git',(req,res) => {
+    res.sendFile('images/git.jpeg',{root:path.join(__dirname,'./')});
+});
+app.get('/jcc',(req,res) => {
+    res.sendFile('images/jcc.jpeg',{root:path.join(__dirname,'./')});
+});
+app.get('/gsoc',(req,res) => {
+    res.sendFile('images/gsoc.jpeg',{root:path.join(__dirname,'./')});
+});
+app.get('/aavishkar',(req,res) => {
+    res.sendFile('aavishkar.html',{root:path.join(__dirname,'./')});
+});
 app.listen(port, () => console.log(`Example app listening on port ${port}!\n http://localhost:8000/`));

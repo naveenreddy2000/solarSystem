@@ -2,7 +2,11 @@
 import * as THREE from './build/three.module.js';
 import {OBJLoader} from './OBJLoader.js'
 
-var mesh;
+$('iframe').hide();
+$('#events').fadeIn(4000);
+
+
+var mouse = {x:0,y:0};
 var object;
 var scene = new THREE.Scene();
 const width = window.innerWidth;
@@ -82,11 +86,15 @@ var light5 = new THREE.PointLight( 0x0f86f4f, 1 );
 light5.position.set(-250,160,-380);
 scene.add( light5 );
 
+/*var light = new THREE.SpotLight(0x0f86f4,0.6);
+light.position.x=0;
+light.position.y=1;
+light.position.z=2;
+light.angle=Math.PI/12;
+scene.add(light);*/
 
 
-
-
-function loadModel() {
+function loadModel(frame) {
   object.traverse( function ( child ) {
       if ( child.isMesh ) child.material.map = texture;
   } );
@@ -98,9 +106,6 @@ function loadModel() {
   object.castShadow=true;
   scene.add( object );
 }
-
-
-
 
 var manager = new THREE.LoadingManager( loadModel );
 
@@ -117,6 +122,17 @@ var loader = new OBJLoader( manager );
 loader.load( 'pen.obj', function ( obj ) {
 object = obj;
 } );
+
+
+
+
+
+
+/*
+var geometry = new THREE.SphereGeometry(0.1,32,32);
+var materia = new THREE.MeshBasicMaterial();
+var spher = new THREE.Mesh(geometry,materia);
+scene.add(spher);*/
 
 
 var k=0;
@@ -139,7 +155,9 @@ function frame()
         camera.position.y += 0.025;
         camera.lookAt(new THREE.Vector3(i=i+0.01,j=j+0.05));
     }
-     
+
+
+    
 
 }
 frame();
@@ -171,7 +189,42 @@ function wheel(event)
     }
    
 }
-
-
-
 document.addEventListener('wheel',wheel,false);
+var i;
+var j;
+document.getElementById('events').onclick=function(){
+  $('iframe').fadeIn(3000);
+  $('#events').fadeOut(1000);
+  $('#scroll').fadeOut(1000);
+    setInterval(function(){
+      if( camera.position.z>10 ){
+        camera.position.z-=0.02;
+        camera.position.x+=0.01;
+        camera.position.y+=0.01;
+        camera.lookAt(new THREE.Vector3(i=i+0.03,j=j+0.002));
+      }
+    },10);
+}
+
+
+/*document.addEventListener('mousemove', onMouseMove, false);
+
+
+
+function onMouseMove(event) {
+
+    // Update the mouse variable
+    event.preventDefault();
+    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+  
+    // Make the sphere follow the mouse
+    var vector = new THREE.Vector3(mouse.x, mouse.y, 0);
+    vector.unproject(camera);
+    var dir = vector.sub(camera.position).normalize();
+    var distance = -camera.position.z / dir.z;
+    var pos = camera.position.clone().add(dir.multiplyScalar(distance));
+    pos.z=5;
+    spher.position.copy(pos);
+  };*/

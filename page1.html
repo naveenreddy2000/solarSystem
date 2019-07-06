@@ -1,6 +1,7 @@
 <html>
     <head>
         <title>page1</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     </head>
     <style>
         body{
@@ -8,8 +9,91 @@
             height: 100%;
             background-color: black;
         }
+        iframe{
+            display: none;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+        }
+        #scroll{
+                position: absolute;
+                color: white;
+                margin-top: 720px;
+                margin-left: 650px;
+                font-family: "Times New Roman", Times, serif;
+                font-style: oblique;
+            }
+        #events{
+            width: 200px;
+            height: 50px;
+            position: absolute;
+            color: white;
+            margin-left: 850px;
+            margin-top: 200px;
+            display: none;
+            text-decoration: solid;
+            font-family: serif;
+        }
+        #events:hover{cursor: pointer}
+        #E{
+            position: absolute;
+            font-size: 30px;
+            color: honeydew;
+            margin-top: 10px;
+            transition: margin-top 2s , margin-left 2s;
+        }#E:hover{margin-top: 5px; margin-left: 64px;}
+        #V{
+            position: absolute;
+            font-size: 30px;
+            margin-left: 32px;
+            color: honeydew;
+            margin-top: 10px;
+            transition: margin-top 2s , margin-left 2s;
+        }#V:hover{margin-top: 5px;margin-left:128px;}
+        #Ea{
+            position: absolute;
+            font-size: 30px;
+            margin-left: 64px;
+            color: honeydew;
+            margin-top: 10px;
+            transition: margin-top 2s , margin-left 2s;
+        }#Ea:hover{margin-top: 5px;margin-left: 0px;}
+        #N{
+            position: absolute;
+            font-size: 30px;
+            margin-left: 96px;
+            color: honeydew;
+            margin-top: 10px;
+            transition: margin-top 2s , margin-left 2s;
+        }#N:hover{margin-top: 5px;margin-left:32px;}
+        #T{
+            position: absolute;
+            font-size: 30px;
+            margin-left: 128px;
+            color: honeydew;
+            margin-top: 10px;
+            transition: margin-top 2s , margin-left 2s;
+        }#T:hover{margin-top: 5px;margin-left:160px}
+        #S{
+            position: absolute;
+            font-size: 30px;
+            margin-left: 160px;
+            color: honeydew;
+            margin-top: 10px;
+            transition: margin-top 2s , margin-left 2s;
+        }#S:hover{margin-top: 5px;margin-left:0px}
     </style>
     <body>
+        <iframe src="http://localhost:8000/events" frameborder="0"></iframe>
+        <div id="events" >
+            <p id="E">E</p>
+            <p id="V">V</p>
+            <p id="Ea">E</p>
+            <p id="N">N</p>
+            <p id="T">T</p>
+            <p id="S">S</p>
+        </div>
+        <h4 id='scroll'>"scroll down to navigate"</h3>
         <script type="module" src="./javascript/page1.js"></script>
     </body>
 </html>
