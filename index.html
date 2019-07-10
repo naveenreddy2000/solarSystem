@@ -37,45 +37,45 @@
             font-size: 30px;
             color: honeydew;
             margin-top: 10px;
-            transition: margin-top 1s , margin-left 1s;
-        }#E:hover{margin-top: 5px; margin-left: 64px;}
+            transition: margin-top 1s , margin-left 1s , color 1s ,display 1s;
+        }
         #A{
             position: absolute;
             font-size: 30px;
-            margin-left: 32px;
+            margin-left: 31px;
             color: honeydew;
             margin-top: 10px;
-            transition: margin-top 1s , margin-left 1s;
-        }#A:hover{margin-top: 5px;margin-left:128px;}
+            transition: margin-top 1s , margin-left 1s, color 1s,display 1s;
+        }
         #R{
             position: absolute;
             font-size: 30px;
-            margin-left: 64px;
+            margin-left: 63px;
             color: honeydew;
             margin-top: 10px;
-            transition: margin-top 1s , margin-left 1s;
-        }#R:hover{margin-top: 5px;margin-left: 0px;}
+            transition: margin-top 1s , margin-left 1s, color 1s,display 1s;
+        }
         #T{
             position: absolute;
             font-size: 30px;
-            margin-left: 96px;
+            margin-left: 95px;
             color: honeydew;
             margin-top: 10px;
-            transition: margin-top 1s , margin-left 1s;
-        }#T:hover{margin-top: 5px;margin-left:32px;}
+            transition: margin-top 1s , margin-left 1s, color 1s,display 1s;
+        }
         #H{
             position: absolute;
             font-size: 30px;
-            margin-left: 128px;
+            margin-left: 127px;
             color: honeydew;
             margin-top: 10px;
-            transition: margin-top 1s , margin-left 1s;
-        }#H:hover{margin-top: 5px;margin-left:160px}
+            transition: margin-top 1s , margin-left 1s, color 1s,display 1s;
+        }
         </style>
     </head>
     <body id="scene">
         <iframe src="http://localhost:8000/aavishkar" frameborder="0"></iframe>
-        <div id="earth">
+        <div id="earth" onmouseover="mouseOver()" onmouseout="mouseOut()">
                 <p id="E">E</p>
                 <p id="A">A</p>
                 <p id="R">R</p>
@@ -86,5 +86,59 @@
         
         <script src="javascript/three.js"></script>
         <script src="javascript/javascript.js"></script>
+        <script>
+            function mouseOver(){
+                document.getElementById('E').style.marginTop ='5px';
+                document.getElementById('A').style.marginTop ='5px';
+                document.getElementById('R').style.marginTop ='5px';
+                document.getElementById('T').style.marginTop ='5px';
+                document.getElementById('H').style.marginTop ='5px';
+                document.getElementById('E').style.marginLeft='64px';
+                document.getElementById('A').style.marginLeft='0px';
+                document.getElementById('R').style.marginLeft='128px';
+                document.getElementById('T').style.marginLeft='32px';
+                document.getElementById('H').style.marginLeft='96px';
+                document.getElementById('E').style.color='black';
+                document.getElementById('A').style.color='black';
+                document.getElementById('R').style.color='black';
+                document.getElementById('T').style.color='black';
+                document.getElementById('H').style.color='black';
+                setTimeout(function(){
+                document.getElementById('E').style.marginTop='10px';
+                document.getElementById('A').style.marginTop ='10px';
+                document.getElementById('R').style.marginTop ='10px';
+                document.getElementById('T').style.marginTop ='10px';
+                document.getElementById('H').style.marginTop ='10px';
+                document.getElementById('E').style.marginLeft='0px';
+                document.getElementById('A').style.marginLeft='32px';
+                document.getElementById('R').style.marginLeft='64px';
+                document.getElementById('T').style.marginLeft='96px';
+                document.getElementById('H').style.marginLeft='128px';
+                document.getElementById('E').style.color='honeydew';
+                document.getElementById('A').style.color='honeydew';
+                document.getElementById('R').style.color='honeydew';
+                document.getElementById('T').style.color='honeydew';
+                document.getElementById('H').style.color='honeydew';
+                },1200);
+            }
+            function mouseOut (){
+                document.getElementById('E').style.marginTop='10px';
+                document.getElementById('A').style.marginTop ='10px';
+                document.getElementById('R').style.marginTop ='10px';
+                document.getElementById('T').style.marginTop ='10px';
+                document.getElementById('H').style.marginTop ='10px';
+                document.getElementById('E').style.marginLeft='0px';
+                document.getElementById('A').style.marginLeft='32px';
+                document.getElementById('R').style.marginLeft='64px';
+                document.getElementById('T').style.marginLeft='96px';
+                document.getElementById('H').style.marginLeft='128px';
+                document.getElementById('E').style.color='honeydew';
+                document.getElementById('A').style.color='honeydew';
+                document.getElementById('R').style.color='honeydew';
+                document.getElementById('T').style.color='honeydew';
+                document.getElementById('H').style.color='honeydew';
+            }
+            
+        </script>
     </body>
 </html>

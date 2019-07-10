@@ -73,21 +73,22 @@ for(i=0;i<10;i++)
 
  
  var jupiterSphere = new THREE.SphereGeometry(60,80,80);
- var jupiterMaterial = new THREE.MeshBasicMaterial({ map : new THREE.TextureLoader().load('http://localhost:8000/image1'),transparent: true,opacity : 1});
+ var jupiterMaterial = new THREE.MeshPhongMaterial({ map : new THREE.TextureLoader().load('http://localhost:8000/image1'),transparent: true,opacity : 1});
  var jupiterMesh = new THREE.Mesh(jupiterSphere, jupiterMaterial);
  jupiterMesh.position.set(-500,0,-500);
  jupiterPivot.add( jupiterMesh );
 
  
- 
-
 
 
  var saturnSphere = new THREE.SphereGeometry(50,80,80);
- var saturnMaterial = new THREE.MeshBasicMaterial({ map : new THREE.TextureLoader().load('http://localhost:8000/image7') ,transparent: true,opacity : 1});
+ var saturnMaterial = new THREE.MeshPhongMaterial({ map : new THREE.TextureLoader().load('http://localhost:8000/image7') ,transparent: true,opacity : 1});
  var saturnMesh = new THREE.Mesh(saturnSphere, saturnMaterial);
  saturnMesh.position.set(300,300,-300);
  saturnPivot.add( saturnMesh );
+
+ var light = new THREE.PointLight(0xffffff,1);
+ scene.add(light);
 
  
 
@@ -103,8 +104,11 @@ for(i=0;i<10;i++)
 function wheel(event)
 {
     if(event.deltaY<0){
-        var i = 0,j = 0 ;
-        
+                document.getElementById('E').style.display='none';
+                document.getElementById('A').style.display='none';
+                document.getElementById('R').style.display='none';
+                document.getElementById('T').style.display='none';
+                document.getElementById('H').style.display='none';
         setInterval(function(){
             camera.position.z = camera.position.z - 2;
             camera.lookAt(new THREE.Vector3(k=k+1.5,l=l+1.5,0));

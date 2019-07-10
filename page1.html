@@ -40,52 +40,52 @@
             font-size: 30px;
             color: honeydew;
             margin-top: 10px;
-            transition: margin-top 2s , margin-left 2s;
-        }#E:hover{margin-top: 5px; margin-left: 64px;}
+            transition: margin-top 2s , margin-left 2s ,color 2s,display 1s;
+        }
         #V{
             position: absolute;
             font-size: 30px;
-            margin-left: 32px;
+            margin-left: 31px;
             color: honeydew;
             margin-top: 10px;
-            transition: margin-top 2s , margin-left 2s;
-        }#V:hover{margin-top: 5px;margin-left:128px;}
+            transition: margin-top 2s , margin-left 2s,color 2s,display 1s;
+        }
         #Ea{
             position: absolute;
             font-size: 30px;
-            margin-left: 64px;
+            margin-left: 63px;
             color: honeydew;
             margin-top: 10px;
-            transition: margin-top 2s , margin-left 2s;
-        }#Ea:hover{margin-top: 5px;margin-left: 0px;}
+            transition: margin-top 2s , margin-left 2s,color 2s,display 1s;
+        }
         #N{
             position: absolute;
             font-size: 30px;
-            margin-left: 96px;
+            margin-left: 95px;
             color: honeydew;
             margin-top: 10px;
-            transition: margin-top 2s , margin-left 2s;
-        }#N:hover{margin-top: 5px;margin-left:32px;}
+            transition: margin-top 2s , margin-left 2s,color 2s,display 1s;
+        }
         #T{
             position: absolute;
             font-size: 30px;
-            margin-left: 128px;
+            margin-left: 127px;
             color: honeydew;
             margin-top: 10px;
-            transition: margin-top 2s , margin-left 2s;
-        }#T:hover{margin-top: 5px;margin-left:160px}
+            transition: margin-top 2s , margin-left 2s,color 2s,display 1s;
+        }
         #S{
             position: absolute;
             font-size: 30px;
-            margin-left: 160px;
+            margin-left: 159px;
             color: honeydew;
             margin-top: 10px;
-            transition: margin-top 2s , margin-left 2s;
-        }#S:hover{margin-top: 5px;margin-left:0px}
+            transition: margin-top 2s , margin-left 2s,color 2s,display 1s;
+        }
     </style>
     <body>
         <iframe src="http://localhost:8000/events" frameborder="0"></iframe>
-        <div id="events" >
+        <div id="events" onmouseover="mouseOver()" onmouseout="mouseOut()" >
             <p id="E">E</p>
             <p id="V">V</p>
             <p id="Ea">E</p>
@@ -95,5 +95,68 @@
         </div>
         <h4 id='scroll'>"scroll down to navigate"</h3>
         <script type="module" src="./javascript/page1.js"></script>
+        <script>
+                function mouseOver(){
+                    document.getElementById('E').style.marginTop ='5px';
+                    document.getElementById('V').style.marginTop ='5px';
+                    document.getElementById('Ea').style.marginTop ='5px';
+                    document.getElementById('N').style.marginTop ='5px';
+                    document.getElementById('T').style.marginTop ='5px';
+                    document.getElementById('S').style.marginTop ='5px';
+                    document.getElementById('E').style.marginLeft='64px';
+                    document.getElementById('V').style.marginLeft='160px';
+                    document.getElementById('Ea').style.marginLeft='128px';
+                    document.getElementById('N').style.marginLeft='32px';
+                    document.getElementById('T').style.marginLeft='96px';
+                    document.getElementById('S').style.marginLeft='0px';
+                    document.getElementById('E').style.color='black';
+                    document.getElementById('V').style.color='black';
+                    document.getElementById('Ea').style.color='black';
+                    document.getElementById('N').style.color='black';
+                    document.getElementById('T').style.color='black';
+                    document.getElementById('S').style.color='black';
+                    setTimeout(function(){
+                    document.getElementById('E').style.marginTop='10px';
+                    document.getElementById('V').style.marginTop ='10px';
+                    document.getElementById('Ea').style.marginTop ='10px';
+                    document.getElementById('N').style.marginTop ='10px';
+                    document.getElementById('T').style.marginTop ='10px';
+                    document.getElementById('S').style.marginTop ='10px';
+                    document.getElementById('E').style.marginLeft='0px';
+                    document.getElementById('V').style.marginLeft='32px';
+                    document.getElementById('Ea').style.marginLeft='64px';
+                    document.getElementById('N').style.marginLeft='96px';
+                    document.getElementById('T').style.marginLeft='128px';
+                    document.getElementById('S').style.marginLeft='160px';
+                    document.getElementById('E').style.color='honeydew';
+                    document.getElementById('V').style.color='honeydew';
+                    document.getElementById('Ea').style.color='honeydew';
+                    document.getElementById('N').style.color='honeydew';
+                    document.getElementById('T').style.color='honeydew';
+                    document.getElementById('S').style.color='honeydew';
+                    },2200);
+                }
+                function mouseOut (){
+                    document.getElementById('E').style.marginTop='10px';
+                    document.getElementById('V').style.marginTop ='10px';
+                    document.getElementById('Ea').style.marginTop ='10px';
+                    document.getElementById('N').style.marginTop ='10px';
+                    document.getElementById('T').style.marginTop ='10px';
+                    document.getElementById('S').style.marginTop ='10px';
+                    document.getElementById('E').style.marginLeft='0px';
+                    document.getElementById('V').style.marginLeft='32px';
+                    document.getElementById('Ea').style.marginLeft='64px';
+                    document.getElementById('N').style.marginLeft='96px';
+                    document.getElementById('T').style.marginLeft='128px';
+                    document.getElementById('S').style.marginLeft='160px';
+                    document.getElementById('E').style.color='honeydew';
+                    document.getElementById('V').style.color='honeydew';
+                    document.getElementById('Ea').style.color='honeydew';
+                    document.getElementById('N').style.color='honeydew';
+                    document.getElementById('T').style.color='honeydew';
+                    document.getElementById('S').style.color='honeydew';
+                }
+                
+            </script>
     </body>
 </html>

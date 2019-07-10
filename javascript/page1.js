@@ -168,7 +168,12 @@ function wheel(event)
 {   
 
     if(event.deltaY>0){
-
+      document.getElementById('E').style.display='none';
+      document.getElementById('V').style.display='none';
+      document.getElementById('Ea').style.display='none';
+      document.getElementById('N').style.display='none';
+      document.getElementById('T').style.display='none';
+      document.getElementById('S').style.display='none';
        
     setInterval(function(){
         pMesh.material.opacity-=0.005;
