@@ -30,12 +30,37 @@
                 font-style: bold;
                 font-weight: 500;
                 font-size: 50px;}
+            #close{
+                position: absolute;
+                margin-left: 100px;
+                margin-top: 50px;
+                width: 30px;
+                height: 20px;
+                background-color: rgba(192,192,192,0.5);
+                cursor: pointer;
+            }
+            #X{
+                margin-left: 10px;
+                margin-top: 2px;
+                color: seashell;
+                font-size: 15px;
+            }
         </style>
     </head>
     <body>
+        <div id="close">
+            <p id="X">X</p>
+        </div>
       <h3 id="welcome">welcome to the planet earth which is the host of one of the largest
           fests in the universe -
       </h2>
       <p id="aavishkar">AAVISHKAR</p>>
     </body>
+    <script>
+        document.getElementById('close').onclick=function()
+        {
+            window.open('http://localhost:8000/','_self');
+        }
+    </script>
+
 </html>

@@ -66,9 +66,27 @@
             color: ivory;
 
         }
+        #close{
+                position: absolute;
+                margin-left: 250px;
+                margin-top: 60px;
+                width: 30px;
+                height: 20px;
+                background-color: rgba(192,192,192,0.5);
+                cursor: pointer;
+            }
+            #X{
+                margin-left: 10px;
+                margin-top: 2px;
+                color: seashell;
+                font-size: 15px;
+            }
         </style>
     </head>
     <body>
+            <div id="close">
+                    <p id="X">X</p>
+            </div>
             <div id="list">
                 <div id="img1div">
                         <img id="img1" src="./jcc" alt="">
@@ -97,4 +115,10 @@
                 </div>
             </div>
     </body>
+    <script>
+            document.getElementById('close').onclick=function()
+            {
+                window.open('http://localhost:8000/page1','_self');
+            }
+        </script>
 </html>
