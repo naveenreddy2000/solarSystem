@@ -188,7 +188,7 @@ function wheel(event)
 
     setTimeout(function(){
         
-      window.open('http://localhost:8000/','_self');
+      window.open('/','_self');
            
     },800)
     }
