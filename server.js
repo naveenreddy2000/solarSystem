@@ -9,8 +9,7 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/' + 'index.html');
 });
 app.get('/javascript/build/three.module.js', (req, res) => 
-    res.sendFile('javascript/build/three.module.js', { root: path.join(__dirname, './') });
-});
+    res.sendFile('javascript/build/three.module.js', { root: path.join(__dirname, './') }));
 app.get('/build/three.module.js', (req, res) => {
     res.sendFile('javascript/build/three.module.js', { root: path.join(__dirname, './') }); nav
 });
