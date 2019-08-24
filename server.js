@@ -4,7 +4,7 @@ const port = 8000
 const path = require('path')
 
 app.get('/',(req,res) => {
-    res.sendFile('index.html',{root:path.join(__dirname,'./')});
+    res.sendFile(__dirname + '/'+'index.html');
 });
 app.get('/javascript/build/three.module.js',(req,res) => {
     res.sendFile('javascript/build/three.module.js',{root:path.join(__dirname,'./')});
@@ -20,6 +20,9 @@ app.get('/javascript/three.js',(req,res) => {
 });
 
 
+app.get('/logo',(req,res) => {
+    res.sendFile('images/download.png',{root:path.join(__dirname,'./')});
+});
 app.get('/image2',(req,res) => {
     res.sendFile('images/images(2).jpg',{root:path.join(__dirname,'./')});
 });
