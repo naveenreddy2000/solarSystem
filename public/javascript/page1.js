@@ -113,7 +113,7 @@ var manager = new THREE.LoadingManager( loadModel );
 
 
 var textureLoader = new THREE.TextureLoader( manager );
-var texture = textureLoader.load( 'pen.jpg' );
+var texture = textureLoader.load( '/images/pen.jpg' );
 
 
 

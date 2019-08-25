@@ -5,63 +5,13 @@ const path = require('path')
 
 app.use(express.static('public'));
 
+
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/' + 'index.html');
+    res.sendFile(__dirname + '/' + 'public/templates/index.html');
 });
-app.get('/javascript/build/three.module.js', (req, res) => 
-    res.sendFile('javascript/build/three.module.js', { root: path.join(__dirname, './') }));
-app.get('/javascript/page1', (req, res) => {
-    res.sendFile('javascript/build/three.module.js', { root: path.join(__dirname, './') });
-});
-app.get('/javascript/javascript.js', (req, res) => {
-    res.sendFile('javascript/javascript.js', { root: path.join(__dirname, './') });
-});
-app.get('/javascript/three.js', (req, res) => {
-    res.sendFile('javascript/three.js', { root: path.join(__dirname, './') });
-});
-app.get('/build/three.module.js', (req, res) => {
-    res.sendFile('javascript/build/three.module.js', { root: path.join(__dirname, './') });
-});
-
-app.get('/logo', (req, res) => {
-    res.sendFile('public/images/download.png', { root: path.join(__dirname, './') });
-});
-app.get('/events', (req, res) => {
-    res.sendFile('events.html', { root: path.join(__dirname, './') });
-});
-
-
-
-
 app.get('/page1', (req, res) => {
-    res.sendFile('page1.html', { root: path.join(__dirname, './') });
-});
-app.get('/javascript/page1.js', (req, res) => {
-    res.sendFile('javascript/page1.js', { root: path.join(__dirname, './') });
-});
-app.get('/javascript/ObjectLoader.js', (req, res) => {
-    res.sendFile('javascript/ObjectLoader.js', { root: path.join(__dirname, './') });
+    res.sendFile('public/templates/page1.html', { root: path.join(__dirname, './') });
 });
 
-app.get('/pen.obj', (req, res) => {
-    res.sendFile('pen.obj', { root: path.join(__dirname, './') });
-});
-app.get('/pen.jpg', (req, res) => {
-    res.sendFile('pen.jpg', { root: path.join(__dirname, './') });
-});
-app.get('/javascript/OBJLoader.js', (req, res) => {
-    res.sendFile('javascript/OBJLoader.js', { root: path.join(__dirname, './') });
-});
-app.get('/git', (req, res) => {
-    res.sendFile('public/images/git.jpeg', { root: path.join(__dirname, './') });
-});
-app.get('/jcc', (req, res) => {
-    res.sendFile('public/images/jcc.jpeg', { root: path.join(__dirname, './') });
-});
-app.get('/gsoc', (req, res) => {
-    res.sendFile('public/images/gsoc.jpeg', { root: path.join(__dirname, './') });
-});
-app.get('/aavishkar', (req, res) => {
-    res.sendFile('aavishkar.html', { root: path.join(__dirname, './') });
-});
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!\n /`));
