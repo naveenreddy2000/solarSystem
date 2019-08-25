@@ -26,15 +26,6 @@ app.get('/build/three.module.js', (req, res) => {
 app.get('/logo', (req, res) => {
     res.sendFile('public/images/download.png', { root: path.join(__dirname, './') });
 });
-app.get('/image2', (req, res) => {
-    res.sendFile('public/images/images(2).jpg', { root: path.join(__dirname, './') });
-});
-app.get('/image1', (req, res) => {
-    res.sendFile('public/images/images(1).jpg', { root: path.join(__dirname, './') });
-});
-app.get('/image7', (req, res) => {
-    res.sendFile('public/images/images(7).jpg', { root: path.join(__dirname, './') });
-});
 app.get('/events', (req, res) => {
     res.sendFile('events.html', { root: path.join(__dirname, './') });
 });
