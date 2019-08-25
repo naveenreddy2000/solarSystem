@@ -19,7 +19,7 @@ var no =0;
 
 
 var sunSphere = new THREE.SphereGeometry(115,80,80);
-var sunMaterial = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('/image2') ,transparent: true,opacity : 1}); 
+var sunMaterial = new THREE.MeshBasicMaterial({map : new THREE.TextureLoader().load('/images/images(2).jpg') ,transparent: true,opacity : 1}); 
 var sunMesh = new THREE.Mesh(sunSphere, sunMaterial);
 sunSphere.dynamic = true;
 
@@ -73,7 +73,7 @@ for(i=0;i<10;i++)
 
  
  var jupiterSphere = new THREE.SphereGeometry(60,80,80);
- var jupiterMaterial = new THREE.MeshPhongMaterial({ map : new THREE.TextureLoader().load('/image1'),transparent: true,opacity : 1});
+ var jupiterMaterial = new THREE.MeshPhongMaterial({ map : new THREE.TextureLoader().load('/images/images(1).jpg'),transparent: true,opacity : 1});
  var jupiterMesh = new THREE.Mesh(jupiterSphere, jupiterMaterial);
  jupiterMesh.position.set(-500,0,-500);
  jupiterPivot.add( jupiterMesh );
@@ -82,7 +82,7 @@ for(i=0;i<10;i++)
 
 
  var saturnSphere = new THREE.SphereGeometry(50,80,80);
- var saturnMaterial = new THREE.MeshPhongMaterial({ map : new THREE.TextureLoader().load('/image7') ,transparent: true,opacity : 1});
+ var saturnMaterial = new THREE.MeshPhongMaterial({ map : new THREE.TextureLoader().load('/images/images(7).jpg') ,transparent: true,opacity : 1});
  var saturnMesh = new THREE.Mesh(saturnSphere, saturnMaterial);
  saturnMesh.position.set(300,300,-300);
  saturnPivot.add( saturnMesh );
